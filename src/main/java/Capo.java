@@ -1,8 +1,7 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Capo {
-     static void main(String[] args) {
+     public static void main(String[] args) {
         String userInput;
         int index = 0;
         Task[] list = new Task[100];
@@ -27,7 +26,7 @@ public class Capo {
                 }
                 System.out.println("_____________________________________________________________");
             }
-            else if (userInput.contains("unmark")) {
+            else if (userInput.startsWith("unmark")) {
                 item = Integer.parseInt(splitUserInput[1]);
                 list[item].setIsDone(false);
                 System.out.println("_____________________________________________________________");
@@ -35,7 +34,7 @@ public class Capo {
                 System.out.println("[" + list[item].taskType() + "]"+"["+list[item].getStatusIcon()+"] " + list[item].getDescription());
                 System.out.println("_____________________________________________________________");
             }
-            else if (userInput.contains("mark")) {
+            else if (userInput.startsWith("mark")) {
                 item = Integer.parseInt(splitUserInput[1]) - 1;
                 list[item].setIsDone(true);
                 System.out.println("_____________________________________________________________");
@@ -46,7 +45,6 @@ public class Capo {
             else {
                 String keyword = splitUserInput[0];
                 Task t;
-                System.out.println(keyword);
                 switch (keyword) {
                 case "todo":
                     t = new Todo(userInput.substring(keyword.length() + 1));
