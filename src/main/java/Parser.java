@@ -10,9 +10,15 @@ public class Parser {
         case "list":
             return new ListCommand();
         case "mark":
+            if (split.length < 2) {
+                throw new CapoException("Please specify the task number");
+            }
             int markIndex = Integer.parseInt(split[1]) - 1;
             return new MarkCommand(markIndex);
         case "unmark":
+            if (split.length < 2) {
+                throw new CapoException("Please specify the task number");
+            }
             int unmarkIndex = Integer.parseInt(split[1]) - 1;
             return new UnmarkCommand(unmarkIndex);
         case "todo":
@@ -28,15 +34,13 @@ public class Parser {
             t = new Deadline(userInput.substring(keyword.length() + 1));
             return new AddCommand(t);
         case "event":
-            if (split.length < 2 || !userInput.contains("/from") || !userInput.contains("/to")) {
+            if (split.length < 2 || !userInput.contains("/from") || !userInput.contains("to")) {
                 throw new CapoException("Please follow the format\n event [task name] /from [time] /to [time]");
             }
             t = new Event(userInput.substring(keyword.length() + 1));
             return new AddCommand(t);
         default:
-            System.out.println("I'm sorry there is no such command. Please try either:");
-            System.out.println("- todo\n- deadline\n- event");
+            throw new CapoException("I'm sorry there is no such command. Please try either:\n- todo\n- deadline\n- event");
         }
-        return null;
     }
 }
