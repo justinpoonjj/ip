@@ -1,24 +1,17 @@
-public class Task {
-    protected String description;
-    protected boolean isDone;
+package TaskType;
 
-    public void setIsDone(boolean value) {
-        this.isDone = value;
+public class Todo extends Task {
+
+    public Todo(String description) {
+        super(description);
     }
 
-    public String getDescription() {
-        return description;
+    @Override
+    public String taskType() {
+        return "T";
     }
 
-    public Task(String description) {
-        this.description = description;
-        this.isDone = false;
-    }
-
-    public String getStatusIcon() {
-        return (isDone ? "X" : " ");
-    }
-
+    @Override
     public void printMessage(int index) {
         System.out.println("_____________________________________________________________");
         System.out.println("Got it. I've added this task:");
@@ -27,11 +20,8 @@ public class Task {
         System.out.println("_____________________________________________________________");
     }
 
+    @Override
     public void printList(int index) {
-        System.out.println((index+1) + "." + description);
-    }
-
-    public String taskType() {
-        return "Task";
+        System.out.println((index+1) + "." + "[" + taskType() + "]"+"["+ getStatusIcon()+"] " + getDescription());
     }
 }

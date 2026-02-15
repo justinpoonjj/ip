@@ -1,4 +1,8 @@
-public class ExitCommand extends Commands{
+package Commands;
+
+import TaskType.*;
+
+public class ExitCommand extends Command {
     @Override
     public void execute (TaskList list) {
         System.out.println("_____________________________________________________________");

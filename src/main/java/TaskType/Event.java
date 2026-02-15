@@ -1,4 +1,6 @@
-public class Event extends Task{
+package TaskType;
+
+public class Event extends Task {
     private final int separationIndex = description.indexOf('/');
     private final String TaskDescription = this.description.substring(0,separationIndex);
 

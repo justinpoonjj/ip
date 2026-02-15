@@ -1,4 +1,8 @@
-public class UnmarkCommand extends Commands {
+package Commands;
+
+import TaskType.*;
+
+public class UnmarkCommand extends Command {
     private final int index;
 
     public UnmarkCommand(int index){

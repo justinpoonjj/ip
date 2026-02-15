@@ -1,4 +1,8 @@
-public class AddCommand extends Commands{
+package Commands;
+
+import TaskType.*;
+
+public class AddCommand extends Command {
     private final Task t;
 
     public AddCommand(Task t) {

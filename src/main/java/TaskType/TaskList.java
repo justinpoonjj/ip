@@ -1,3 +1,5 @@
+package TaskType;
+
 public class TaskList {
     private final Task[] tasks;
     private int index;

@@ -1,5 +1,11 @@
+package Parser;
+
+import Commands.*;
+import TaskType.*;
+import Exception.CapoException;
+
 public class Parser {
-    public static Commands parse (String userInput) throws CapoException {
+    public static Command parse (String userInput) throws CapoException {
         String[] split = userInput.split(" ");
         String keyword = split[0].toLowerCase();
         Task t;

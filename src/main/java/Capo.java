@@ -1,5 +1,9 @@
-// import java.text.NumberFormat;
 import java.util.Scanner;
+
+import Commands.Command;
+import Parser.Parser;
+import TaskType.TaskList;
+import Exception.CapoException;
 
 public class Capo {
     public static void main(String[] args) {
@@ -11,10 +15,7 @@ public class Capo {
         while (true) {
             try {
                 userInput = input.nextLine();
-                Commands cmd = Parser.parse(userInput);
-                if (cmd == null) {
-                    continue;
-                }
+                Command cmd = Parser.parse(userInput);
                 cmd.execute(list);
                 if (cmd.isExit()) {
                     break;
@@ -23,7 +24,6 @@ public class Capo {
                 System.out.println("Error: " + e.getMessage());
             }
         }
-
     }
 
     public static void greetings() {

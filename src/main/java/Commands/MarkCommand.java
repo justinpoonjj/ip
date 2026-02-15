@@ -1,4 +1,8 @@
-public class MarkCommand extends Commands{
+package Commands;
+
+import TaskType.*;
+
+public class MarkCommand extends Command {
     private final int index;
 
     public MarkCommand(int index) {

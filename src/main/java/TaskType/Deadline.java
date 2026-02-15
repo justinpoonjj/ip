@@ -1,4 +1,6 @@
-public class Deadline extends Task{
+package TaskType;
+
+public class Deadline extends Task {
     int separationIndex = this.description.indexOf('/');
 
     public Deadline(String description) {
