@@ -10,11 +10,11 @@ public class DeleteCommand extends Command{
     }
 
     public void execute(TaskList list) {
-        list.removeIndex(index + 1);
         System.out.println("_____________________________________________________________");
         System.out.println("Alrightttt, this task has been removed from the list:");
         System.out.println("\t[" + list.getTask(index).taskType() + "]"+"[" + list.getTask(index).getStatusIcon()+"] " + list.getTask(index).getDescription());
-        System.out.println("Now you have " + list.getSize() + " in the list :)");
+        System.out.println("Now you have " + (list.getSize() - 1) + " in the list :)");
         System.out.println("_____________________________________________________________");
+        list.removeIndex(index);
     }
 }
