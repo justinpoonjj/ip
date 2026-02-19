@@ -27,6 +27,12 @@ public class Parser {
             }
             int unmarkIndex = Integer.parseInt(split[1]) - 1;
             return new UnmarkCommand(unmarkIndex);
+        case "delete":
+            if (split.length < 2) {
+                throw new CapoException("Please specify the task number");
+            }
+            int deleteIndex = Integer.parseInt(split[1]) - 1;
+            return new DeleteCommand(deleteIndex);
         case "todo":
             if (split.length < 2) {
                 throw new CapoException("Please follow the format\n todo [task name]");
