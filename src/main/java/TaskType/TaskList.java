@@ -1,8 +1,9 @@
 package TaskType;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class TaskList {
+public class TaskList implements Iterable<Task> {
     private final ArrayList<Task> tasks;
     private int size;
 
@@ -23,11 +24,15 @@ public class TaskList {
         return tasks.get(index);
     }
 
+    public Iterator<Task> iterator(){
+        return tasks.iterator();
+    }
+
     public void printTaskList() {
         System.out.println("_____________________________________________________________");
         System.out.println("Here are your list of tasks");
         for (int i = 0; i < size; i++) {
-            tasks.get(i).printList(i);
+            getTask(i).printList(i);
         }
         System.out.println("_____________________________________________________________");
     }

@@ -1,3 +1,5 @@
+
+import java.io.IOException;
 import java.util.Scanner;
 
 import Commands.Command;
@@ -9,20 +11,26 @@ public class Capo {
     public static void main(String[] args) {
         String userInput;
         // int index = 0;
-        TaskList list = new TaskList();
         Scanner input = new Scanner(System.in);
-        greetings();
-        while (true) {
-            try {
-                userInput = input.nextLine();
-                Command cmd = Parser.parse(userInput);
-                cmd.execute(list);
-                if (cmd.isExit()) {
-                    break;
+        Storage s = new Storage("./data/Capo.txt");
+        try {
+            TaskList list = s.loadFile();
+            greetings();
+            while (true) {
+                try {
+                    userInput = input.nextLine();
+                    Command cmd = Parser.parse(userInput);
+                    cmd.execute(list);
+                    if (cmd.isExit()) {
+                        s.saveFile(list);
+                        break;
+                    }
+                } catch (CapoException | IOException e) {
+                    System.out.println("Error: " + e.getMessage());
                 }
-            }catch (CapoException e) {
-                System.out.println("Error: " + e.getMessage());
             }
+        } catch (CapoException | IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
