@@ -12,6 +12,6 @@ public class AddCommand extends Command {
     @Override
     public void execute(TaskList list){
         list.add(t);
-        t.printMessage(list.getIndex() - 1);
+        t.printMessage(list.getSize() - 1);
     }
 }

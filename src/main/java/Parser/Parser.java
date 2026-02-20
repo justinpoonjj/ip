@@ -5,6 +5,7 @@ import TaskType.*;
 import Exception.CapoException;
 
 public class Parser {
+
     public static Command parse (String userInput) throws CapoException {
         String[] split = userInput.split(" ");
         String keyword = split[0].toLowerCase();
@@ -48,5 +49,34 @@ public class Parser {
         default:
             throw new CapoException("I'm sorry there is no such command. Please try either:\n- todo\n- deadline\n- event");
         }
+    }
+
+    public static Task parseStoredFile(String input) throws CapoException {
+        String[] split = input.split("\\|");
+        if (split.length < 3){
+            throw new CapoException("Invalid save line: " + input);
+        }
+        String type = split[0].trim();
+        String isDone = split[1].trim();
+        String description = split[2].trim();
+        Task t;
+        //description may want to change to the orginal user format
+        switch(type) {
+        case "T":
+            t = new Todo(description);
+            break;
+        case "D":
+            t = new Deadline(description);
+            break;
+        case"E":
+            t = new Event(description);
+            break;
+        default:
+            throw new CapoException("Unknown task type: " + type);
+        }
+        if (isDone.equals("1")) {
+            t.setIsDone(true);
+        }
+        return t;
     }
 }

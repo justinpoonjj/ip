@@ -29,7 +29,7 @@ public class Event extends Task {
     public void printMessage(int index) {
         System.out.println("_____________________________________________________________");
         System.out.println("Got it. I've added this task:");
-        System.out.println("[" + taskType() + "]"+"["+ getStatusIcon()+"] " + getDescription());
+        System.out.println("[" + taskType() + "]"+"["+ getStatusIcon() + "] " + getDescription());
         System.out.println("Now you have " + (index + 1) + " tasks in the list");
         System.out.println("_____________________________________________________________");
     }
