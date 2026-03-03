@@ -1,42 +1,47 @@
 
 import java.io.IOException;
-import java.util.Scanner;
 
 import Commands.Command;
 import Parser.Parser;
+import Storage.Storage;
 import TaskType.TaskList;
 import Exception.CapoException;
 
 public class Capo {
-    public static void main(String[] args) {
-        String userInput;
-        // int index = 0;
-        Scanner input = new Scanner(System.in);
-        Storage s = new Storage("./data/Capo.txt");
+
+    private TaskList list;
+    private final Ui ui;
+
+    public Capo(String filepath){
+        ui = new Ui();
+        Storage storage = new Storage(filepath);
         try {
-            TaskList list = s.loadFile();
-            greetings();
-            while (true) {
-                try {
-                    userInput = input.nextLine();
-                    Command cmd = Parser.parse(userInput);
-                    cmd.execute(list);
-                    if (cmd.isExit()) {
-                        s.saveFile(list);
-                        break;
-                    }
-                } catch (CapoException | IOException e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
-            }
+            list = storage.loadFile();
         } catch (CapoException | IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            ui.showLoadingError();
+            list = new TaskList();
         }
     }
 
-    public static void greetings() {
-        System.out.println("_____________________________________________________________");
-        System.out.println("Hello! I'm CAPO\nWhat can I do for you?\n");
-        System.out.println("_____________________________________________________________");
+    public void run() {
+        ui.greetings();
+        boolean isExit = false;
+        while (!isExit) {
+            try {
+                String fullCommand = ui.readCommand();
+                ui.showLine();
+                Command c = Parser.parse(fullCommand);
+                c.execute(list);
+                isExit = c.isExit();
+            } catch (CapoException e) {
+                ui.showError(e.getMessage());
+            } finally {
+                ui.showLine();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new Capo("data/tasks.txt").run();
     }
 }

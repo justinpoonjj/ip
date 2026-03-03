@@ -1,3 +1,5 @@
+package Storage;
+
 import Parser.Parser;
 import TaskType.*;
 import java.io.File;
@@ -84,7 +86,6 @@ public class Storage {
         Scanner s = new Scanner(file);
         while (s.hasNextLine()) {
             String line = s.nextLine();
-            System.out.println(line);
             Task t = Parser.parseStoredFile(line);
             list.add(t);
         }
