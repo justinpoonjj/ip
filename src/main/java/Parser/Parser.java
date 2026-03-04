@@ -16,6 +16,9 @@ public class Parser {
             return new ExitCommand();
         case "list":
             return new ListCommand();
+        case "find":
+            String find_word = split[1];
+            return new FindCommand(find_word);
         case "mark":
             if (split.length < 2) {
                 throw new CapoException("Please specify the task number");

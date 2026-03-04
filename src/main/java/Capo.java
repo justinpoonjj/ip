@@ -29,19 +29,16 @@ public class Capo {
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
-                ui.showLine();
                 Command c = Parser.parse(fullCommand);
                 c.execute(list);
                 isExit = c.isExit();
             } catch (CapoException e) {
                 ui.showError(e.getMessage());
-            } finally {
-                ui.showLine();
             }
         }
     }
 
     public static void main(String[] args) {
-        new Capo("data/tasks.txt").run();
+        new Capo("data/Capo.txt").run();
     }
 }
