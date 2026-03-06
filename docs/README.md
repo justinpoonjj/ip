@@ -16,7 +16,7 @@ If you can type fast, CAPO can get your tasks management lists one faster than t
 4) Open a command terminal, `cd` into th folder you put the jar file in, and use the `java -jar ip.jar` command to run the application.
 
 5) You should see the greeting message:
-   ![img.png](img.png)
+![img.png](img.png)
 
 6) Type the command in the command box and press "Enter" to execute it.
 
