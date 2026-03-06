@@ -3,9 +3,23 @@ package Parser;
 import Commands.*;
 import TaskType.*;
 import Exception.CapoException;
+import Storage.Storage;
 
+/**
+ * Parses user input and converts it into executable {@link Command} objects
+ * <p>
+ * This class is responsible for interpreting commands entered by the user
+ * and reconstructing tasks from saved storage data
+ */
 public class Parser {
 
+    /**
+     * Parses a user input string and returns the corresponding {@link Command}
+     *
+     * @param userInput The full command entered by the user.
+     * @return The {@link Command} object representing the user instruction.
+     * @throws CapoException If the command format is invalid or not recognised.
+     */
     public static Command parse (String userInput) throws CapoException {
         String[] split = userInput.split(" ");
         String keyword = split[0].toLowerCase();
@@ -60,6 +74,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses a line from the stored data file and reconstructs the corresponding {@link Task}
+     *
+     * @param input A line from the save file representing a stored task
+     * @return The reconstructed {@link Task} object
+     * @throws CapoException If the stored format is invalid or the task type is unknown.
+     */
     public static Task parseStoredFile(String input) throws CapoException {
         String[] split = input.split("\\|");
         if (split.length < 3){
