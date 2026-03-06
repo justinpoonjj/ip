@@ -32,6 +32,8 @@ Displays all tasks currently stored in CAPO
 
 Command: `list`
 
+Example:
+
 ![img_1.png](img_1.png)
 
 ### Adding tasks
@@ -40,6 +42,8 @@ Adding a Todo task
 Command: `todo <task description>`
 
 Example:
+
+
 ![img_2.png](img_2.png)
 
 Adding a Deadline task
@@ -47,6 +51,8 @@ Adding a Deadline task
 Command: `deadline <task description> /by <date>`
 
 Example:
+
+
 ![img_3.png](img_3.png)
 
 Adding an Event task
@@ -54,6 +60,8 @@ Adding an Event task
 Command: `event <task description /from <start time> /to <end time>`
 
 Example:
+
+
 ![img_4.png](img_4.png)
 
 ### Marking tasks as done
@@ -62,6 +70,8 @@ Marks tasks as completed
 Command: `mark <task number>`
 
 Example:
+
+
 ![img_5.png](img_5.png)
 
 ### Unmarking tasks
@@ -70,6 +80,8 @@ Marks a task as not done
 Command: `unmark <task number>`
 
 Example:
+
+
 ![img_6.png](img_6.png)
 
 ### Deleting tasks
@@ -78,6 +90,8 @@ Removes a task from the list
 Command: `delete <task number>`
 
 Example:
+
+
 ![img_7.png](img_7.png)
 
 ### Finding tasks
@@ -86,6 +100,8 @@ Searches tasks containing a specific keyword.
 Command: `find <keyword>`
 
 Example:
+
+
 ![img_8.png](img_8.png)
 
 ### Exiting program
@@ -94,6 +110,8 @@ Closes the application
 Command: `bye`
 
 Example:
+
+
 ![img_9.png](img_9.png)
 
 ## Saving the data
