@@ -1,128 +1,26 @@
-# CAPO CLI Task Manager
+# Duke project template
 
-## Introduction
-CAPO CLI Task Manager is a desktop app for managing tasks, optimized for use via a Command Line Interface (CLI)
-If you can type fast, CAPO can get your tasks management lists one faster than traditional GUI apps
+This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
 
-## Quick Start
-1) Ensure you have Java `17` or above installed in your Computer.
+## Setting up in Intellij
 
-   **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+Prerequisites: JDK 17, update Intellij to the most recent version.
 
-2) Download the lastest `.jar` file from [here](https://github.com/se-edu/addressbook-level3/releases)
+1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
+1. Open the project into Intellij as follows:
+   1. Click `Open`.
+   1. Select the project directory, and click `OK`.
+   1. If there are any further prompts, accept the defaults.
+1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
+   In the same dialog, set the **Project language level** field to the `SDK default` option.
+1. After that, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
+   ```
+   Hello from
+    ____        _        
+   |  _ \ _   _| | _____ 
+   | | | | | | | |/ / _ \
+   | |_| | |_| |   <  __/
+   |____/ \__,_|_|\_\___|
+   ```
 
-3) Copy the file to the folder you want to use as the home folder for your Task Manger.
-
-4) Open a command terminal, `cd` into th folder you put the jar file in, and use the `java -jar ip.jar` command to run the application.
-
-5) You should see the greeting message:
-   ![img.png](img.png)
-
-6) Type the command in the command box and press "Enter" to execute it.
-
-   Some example commands you can try:
-
-    - `list`
-    - `todo <task description>`
-
-## Features
-
-### Viewing all tasks
-Displays all tasks currently stored in CAPO
-
-Command: `list`
-
-Example:
-
-![img_1.png](img_1.png)
-
-### Adding tasks
-Adding a Todo task
-
-Command: `todo <task description>`
-
-Example:
-
-
-![img_2.png](img_2.png)
-
-Adding a Deadline task
-
-Command: `deadline <task description> /by <date>`
-
-Example:
-
-
-![img_3.png](img_3.png)
-
-Adding an Event task
-
-Command: `event <task description /from <start time> /to <end time>`
-
-Example:
-
-
-![img_4.png](img_4.png)
-
-### Marking tasks as done
-Marks tasks as completed
-
-Command: `mark <task number>`
-
-Example:
-
-
-![img_5.png](img_5.png)
-
-### Unmarking tasks
-Marks a task as not done
-
-Command: `unmark <task number>`
-
-Example:
-
-
-![img_6.png](img_6.png)
-
-### Deleting tasks
-Removes a task from the list
-
-Command: `delete <task number>`
-
-Example:
-
-
-![img_7.png](img_7.png)
-
-### Finding tasks
-Searches tasks containing a specific keyword.
-
-Command: `find <keyword>`
-
-Example:
-
-
-![img_8.png](img_8.png)
-
-### Exiting program
-Closes the application
-
-Command: `bye`
-
-Example:
-
-
-![img_9.png](img_9.png)
-
-## Saving the data
-CAPO automatically saves tasks to:
-```
-data/Capo.txt
-```
-Tasks are loaded automatically when the application starts.
-
-## FAQ
-
-Q: Where are my tasks saved?
-
-A: Tasks are saved in `data/Capo.txt`
+**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
