@@ -59,7 +59,7 @@ public class Capo {
     }
 
     /**
-     * Starts the CAPO prgram.
+     * Starts the CAPO program.
      *
      * @param args Command-line arguments supplied to the program.
      */
